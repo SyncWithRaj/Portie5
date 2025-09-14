@@ -7,13 +7,10 @@ if (!MONGODB_URI) {
   throw new Error("Please define the MONGODB_URI environment variable in .env");
 }
 
-/**
- * Global is used to cache the connection during hot reloads in development
- */
-let cached = global.mongoose;
+let cached = globalThis.mongoose;
 
 if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
+  cached = globalThis.mongoose = { conn: null, promise: null };
 }
 
 async function dbConnect() {

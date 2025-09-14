@@ -28,9 +28,9 @@ export default function RootLayout({ children }) {
           <main className="pt-[72px]">{children}</main>
 
           {/* Omnidimension Widget */}
-          {/* <Script
+          <Script
             id="omnidimension-web-widget" async src="https://backend.omnidim.io/web_widget.js?secret_key=3b66d7e4c8869a969336924e4f59c4c7"
-          /> */}
+          />
         </body>
       </html>
     </ClerkProvider>

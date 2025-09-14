@@ -37,9 +37,9 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
-            { name: "Modern Portfolio", img: "/templates/template1.jpg" },
-            { name: "Creative Showcase", img: "/templates/template2.jpg" },
-            { name: "Minimal Resume", img: "/templates/template3.jpg" },
+            { name: "Modern Portfolio", img: "/template3.jpg" },
+            { name: "Creative Showcase", img: "/template2.jpg" },
+            { name: "Minimal Resume", img: "/template1.jpg" },
           ].map((template, idx) => (
             <div
               key={idx}
