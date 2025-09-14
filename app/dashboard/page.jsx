@@ -135,7 +135,7 @@ export default function DashboardPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-purple-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 py-12">
+        <div className="min-h-screen bg-gradient-to-b from-purple-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 py-12 -mt-18 pt-20">
             <form
                 onSubmit={handleSubmit}
                 className="max-w-6xl mx-auto p-6 space-y-10 bg-white dark:bg-gray-900 rounded-2xl shadow-lg"

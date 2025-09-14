@@ -20,11 +20,13 @@ const ProjectSchema = new mongoose.Schema({
   name: { type: String, trim: true },
   description: { type: String, trim: true },
   link: { type: String, trim: true },
+  githubUrl: { type: String, trim: true }, // Added for project repositories
+  tags: [String], // Added for project technology tags
 });
 
 const SocialLinksSchema = new mongoose.Schema({
   linkedin: { type: String, trim: true },
-  x: { type: String, trim: true },
+  x: { type: String, trim: true }, // For Twitter/X
   github: { type: String, trim: true },
   portfolio: { type: String, trim: true },
 });
@@ -37,17 +39,18 @@ const UserProfileSchema = new mongoose.Schema(
     phone: { type: String, trim: true },
     location: { type: String, trim: true },
     profilePhoto: String,
+    title: { type: String, trim: true }, // Added title for hero sections
     bio: { type: String, maxlength: 800, trim: true },
     skills: [String],
     education: [EducationSchema],
     experience: [ExperienceSchema],
     projects: [ProjectSchema],
     socialLinks: SocialLinksSchema,
+    selectedTemplate: { type: String, trim: true, default: 'one' }, // Added to store the user's chosen template
   },
   { timestamps: true }
 );
 
-// ✅ Make sure default export is correct
 const UserProfile = mongoose.models.UserProfile || mongoose.model("UserProfile", UserProfileSchema);
 
 export default UserProfile;

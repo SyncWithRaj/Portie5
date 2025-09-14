@@ -40,17 +40,8 @@ export default function Contact() {
     };
 
     return (
-        <div className="font-poppins min-h-screen bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-black text-gray-900 dark:text-gray-200">
+        <div className="font-poppins min-h-screen bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-black text-gray-900 dark:text-gray-200 -mt-18  pt-30">
             <div className="container mx-auto px-6 py-16">
-                {/* Header */}
-                <header className="text-center mb-16">
-                    <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-purple-500 to-indigo-600 bg-clip-text text-transparent">
-                        Get in Touch
-                    </h1>
-                    <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                        Have a question, feedback, or a project in mind? Fill out the form below or contact us directly.
-                    </p>
-                </header>
 
                 <div className="grid md:grid-cols-2 gap-12 md:gap-16">
 
@@ -213,7 +204,7 @@ export default function Contact() {
                 </div>
 
                 {/* Footer */}
-                <footer className="w-full py-8 mt-20 text-center text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700">
+                <footer className="w-full pt-8 mt-20 text-center text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700">
                     © {new Date().getFullYear()} Student Portfolio Platform. All rights reserved.
                 </footer>
             </div>

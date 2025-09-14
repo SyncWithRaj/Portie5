@@ -11,6 +11,9 @@
   "dependencies": {
     "@clerk/nextjs": "^6.32.0",
     "@heroicons/react": "^2.2.0",
+    "html2canvas": "^1.4.1",
+    "html2pdf.js": "^0.12.0",
+    "jspdf": "^3.0.2",
     "mongodb": "^6.19.0",
     "mongoose": "^8.18.1",
     "next": "15.5.3",

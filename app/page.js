@@ -36,36 +36,37 @@ export default function Home() {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { name: "Modern Portfolio", img: "/template3.jpg" },
-            { name: "Creative Showcase", img: "/template2.jpg" },
-            { name: "Minimal Resume", img: "/template1.jpg" },
-          ].map((template, idx) => (
-            <div
-              key={idx}
-              className="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-lg transition flex flex-col overflow-hidden"
-            >
-              <Image
-                src={template.img}
-                alt={template.name}
-                width={400}
-                height={250}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 flex flex-col items-center text-center">
-                <h3 className="text-lg font-medium text-indigo-600">
-                  {template.name}
-                </h3>
-                <a
-                  href={`/templates/${idx + 1}`}
-                  className="mt-3 px-5 py-2 rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white text-sm font-medium hover:opacity-90 transition"
-                >
-                  Preview Template
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
+  {[
+    { name: "Modern Portfolio", img: "/template3.jpg", slug: "one" },
+    { name: "Creative Showcase", img: "/template2.jpg", slug: "two" },
+    { name: "Minimal Resume", img: "/template1.jpg", slug: "three" },
+  ].map((template, idx) => (
+    <div
+      key={idx}
+      className="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-lg transition flex flex-col overflow-hidden"
+    >
+      <Image
+        src={template.img}
+        alt={template.name}
+        width={400}
+        height={250}
+        className="w-full h-48 object-cover"
+      />
+      <div className="p-4 flex flex-col items-center text-center">
+        <h3 className="text-lg font-medium text-indigo-600">
+          {template.name}
+        </h3>
+        <a
+          href={`/templates/pages/${template.slug}`}
+          className="mt-3 px-5 py-2 rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white text-sm font-medium hover:opacity-90 transition"
+        >
+          Preview Template
+        </a>
+      </div>
+    </div>
+  ))}
+</div>
+
       </section>
 
       {/* Footer */}
