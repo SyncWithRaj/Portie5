@@ -22,7 +22,7 @@ export default function Home() {
           </a>
           <a
             href="/templates"
-            className="rounded-full border border-indigo-600 text-indigo-600 font-medium text-base px-6 py-3 hover:bg-indigo-50 dark:hover:bg-indigo-900 transition"
+            className="rounded-full border border-indigo-400 text-indigo-400 font-medium text-base px-6 py-3 hover:bg-indigo-50 dark:hover:bg-indigo-900 transition"
           >
             Explore Templates
           </a>
@@ -31,7 +31,7 @@ export default function Home() {
 
       {/* Popular Templates Section */}
       <section className="w-full max-w-6xl py-16">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-10 text-center bg-gradient-to-r from-purple-500 to-indigo-600 bg-clip-text text-transparent">
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-10 text-center bg-gradient-to-r from-purple-300 to-indigo-500 bg-clip-text text-transparent">
           Popular Templates
         </h2>
 

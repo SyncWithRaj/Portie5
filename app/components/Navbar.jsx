@@ -34,16 +34,16 @@ export default function Navbar() {
 
       {/* Links */}
       <div className="hidden sm:flex items-center gap-6 text-sm font-medium">
-        <Link href="/features" className="hover:text-indigo-600 text-indigo-500 text-lg">
+        <Link href="/features" className="hover:text-gray-100 text-gray-200 text-lg">
           Features
         </Link>
-        <Link href="/templates" className="hover:text-indigo-600 text-indigo-500 text-lg">
+        <Link href="/templates" className="hover:text-gray-100 text-gray-200 text-lg">
           Templates
         </Link>
-        <Link href="/about" className="hover:text-indigo-600 text-indigo-500 text-lg">
+        <Link href="/about" className="hover:text-gray-100 text-gray-200 text-lg">
           About Us
         </Link>
-        <Link href="/contact" className="hover:text-indigo-600 text-indigo-500 text-lg">
+        <Link href="/contact" className="hover:text-gray-100 text-gray-200 text-lg">
           Contacts
         </Link>
       </div>
