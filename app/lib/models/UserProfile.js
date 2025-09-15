@@ -20,8 +20,8 @@ const ProjectSchema = new mongoose.Schema({
   name: { type: String, trim: true },
   description: { type: String, trim: true },
   link: { type: String, trim: true },
-  githubUrl: { type: String, trim: true }, // Added for project repositories
-  tags: [String], // Added for project technology tags
+  githubUrl: { type: String, trim: true },
+  tags: [String],
 });
 
 const SocialLinksSchema = new mongoose.Schema({
@@ -29,6 +29,12 @@ const SocialLinksSchema = new mongoose.Schema({
   x: { type: String, trim: true }, // For Twitter/X
   github: { type: String, trim: true },
   portfolio: { type: String, trim: true },
+});
+
+// New schema for individual skills with percentage
+const SkillSchema = new mongoose.Schema({
+  name: { type: String, trim: true },
+  percentage: { type: Number, min: 0, max: 100 },
 });
 
 const UserProfileSchema = new mongoose.Schema(
@@ -39,14 +45,14 @@ const UserProfileSchema = new mongoose.Schema(
     phone: { type: String, trim: true },
     location: { type: String, trim: true },
     profilePhoto: String,
-    title: { type: String, trim: true }, // Added title for hero sections
+    title: { type: String, trim: true },
     bio: { type: String, maxlength: 800, trim: true },
-    skills: [String],
+    skills: [SkillSchema], // Updated to use the new SkillSchema
     education: [EducationSchema],
     experience: [ExperienceSchema],
     projects: [ProjectSchema],
     socialLinks: SocialLinksSchema,
-    selectedTemplate: { type: String, trim: true, default: 'one' }, // Added to store the user's chosen template
+    selectedTemplate: { type: String, trim: true, default: 'one' },
   },
   { timestamps: true }
 );
