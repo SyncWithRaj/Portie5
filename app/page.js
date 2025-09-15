@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 // Reusable animation variants
 const fadeUp = {
@@ -22,15 +23,38 @@ const staggerContainer = {
   },
 };
 
+
 export default function Home() {
+
+  const [showIntro, setShowIntro] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowIntro(false);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="font-poppins bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 overflow-x-hidden -mt-18">
       {/* Background Glows */}
+      {showIntro && (
+        <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
+          <video
+            src="/intro.mp4" // put video in public/
+            autoPlay
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-          <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-purple-300/40 dark:bg-purple-500/30 rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
-          <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-indigo-300/40 dark:bg-indigo-500/30 rounded-full filter blur-3xl opacity-50 animate-pulse animation-delay-4000"></div>
+        <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-purple-300/40 dark:bg-purple-500/30 rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
+        <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-indigo-300/40 dark:bg-indigo-500/30 rounded-full filter blur-3xl opacity-50 animate-pulse animation-delay-4000"></div>
       </div>
-      
+
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         {/* Hero Section */}
         <motion.main
@@ -45,7 +69,7 @@ export default function Home() {
                 ✨ Create, Showcase, Succeed
               </span>
             </motion.div>
-            <motion.h1 
+            <motion.h1
               className="text-4xl sm:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-purple-500 to-indigo-600 bg-clip-text text-transparent"
               variants={fadeUp}
             >
@@ -83,7 +107,7 @@ export default function Home() {
         </motion.main>
 
         {/* Features Section */}
-        <motion.section 
+        <motion.section
           className="py-24"
           initial="hidden"
           whileInView="visible"
@@ -119,7 +143,7 @@ export default function Home() {
         </motion.section>
 
         {/* Popular Templates Section */}
-        <motion.section 
+        <motion.section
           className="py-24"
           initial="hidden"
           whileInView="visible"
@@ -166,7 +190,7 @@ export default function Home() {
             ))}
           </div>
         </motion.section>
-        
+
         {/* Footer */}
         <footer className="py-12 border-t border-gray-200 dark:border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
