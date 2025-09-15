@@ -92,7 +92,7 @@ const Inspector = ({ item, onUpdate, onDelete }) => {
     };
 
     const handleAddListItem = (propName) => {
-        const list = item.props[propName];
+        const list = item.props[propName] || [];
         const newItem = Object.keys(list[0] || {}).reduce((acc, key) => ({ ...acc, [key]: '' }), {});
         const updatedList = [...list, newItem];
         onUpdate(item.id, { ...item.props, [propName]: updatedList });
@@ -213,34 +213,21 @@ export default function EditorPage() {
         setHistoryIndex(newHistory.length - 1);
         setCanvasItems(newItems);
     }, [history, historyIndex]);
-    
-    const handleUpdatePosition = (id, info) => {
-        setCanvasItems(currentItems => 
-            currentItems.map(item => {
-                if (item.id === id) {
-                    const newX = item.x + info.offset.x;
-                    const newY = item.y + info.offset.y;
-                    const snappedX = Math.round(newX / GRID_SIZE) * GRID_SIZE;
-                    const snappedY = Math.round(newY / GRID_SIZE) * GRID_SIZE;
-                    return { ...item, x: snappedX, y: snappedY };
-                }
-                return item;
-            })
-        );
-    };
 
     const handleDragEnd = (id, info) => {
-        const finalPositions = canvasItems.map(item => {
-            if (item.id === id) {
-                 const newX = item.x + info.offset.x;
-                 const newY = item.y + info.offset.y;
-                 const snappedX = Math.round(newX / GRID_SIZE) * GRID_SIZE;
-                 const snappedY = Math.round(newY / GRID_SIZE) * GRID_SIZE;
-                 return { ...item, x: snappedX, y: snappedY };
-            }
-            return item;
-        });
-        updateCanvasItems(finalPositions);
+        const itemToUpdate = canvasItems.find(item => item.id === id);
+        if (!itemToUpdate) return;
+
+        const newX = itemToUpdate.x + info.offset.x;
+        const newY = itemToUpdate.y + info.offset.y;
+        const snappedX = Math.round(newX / GRID_SIZE) * GRID_SIZE;
+        const snappedY = Math.round(newY / GRID_SIZE) * GRID_SIZE;
+
+        const newItems = canvasItems.map(item => 
+            item.id === id ? { ...item, x: snappedX, y: snappedY } : item
+        );
+
+        updateCanvasItems(newItems);
     };
 
     const handleAddItem = (type) => {
@@ -262,7 +249,6 @@ export default function EditorPage() {
     const handleUpdateItemProps = (id, newProps) => {
         const newItems = canvasItems.map(item => {
             if (item.id === id) {
-                // ... (prop update logic)
                 return { ...item, props: newProps };
             }
             return item;
@@ -290,6 +276,7 @@ export default function EditorPage() {
             setCanvasItems(history[newIndex]);
         }
     };
+
     const handleRedo = () => {
         if (historyIndex < history.length - 1) {
             const newIndex = historyIndex + 1;
@@ -320,9 +307,9 @@ export default function EditorPage() {
     };
 
     return (
-        <div className="flex h-screen bg-slate-950 text-white font-sans overflow-hidden print-container -mt-18">
+        <div className="flex h-screen bg-slate-950 text-white font-sans overflow-hidden print-container">
             
-            <aside className="w-64 bg-slate-900 p-6 flex flex-col gap-6 border-r border-slate-800 no-print pt-20">
+            <aside className="w-64 bg-slate-900 p-6 flex flex-col gap-6 border-r border-slate-800 no-print">
                  <h2 className="text-xl font-bold text-white">Toolbox</h2>
                  <div className="space-y-3">
                      <ActionButton onClick={() => handleAddItem('Header')} variant="secondary" className="w-full justify-start"><PlusIcon className="w-5 h-5"/> Add Header</ActionButton>
@@ -363,7 +350,6 @@ export default function EditorPage() {
                                     <motion.div
                                         key={item.id}
                                         drag
-                                        onDrag={(event, info) => handleUpdatePosition(item.id, info)}
                                         onDragEnd={(event, info) => handleDragEnd(item.id, info)}
                                         dragConstraints={canvasRef}
                                         onTap={(e) => { e.stopPropagation(); setSelectedItemId(item.id); }}

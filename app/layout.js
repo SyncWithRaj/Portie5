@@ -13,7 +13,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Student Portfolio",
+  title: "Portie5",
   description: "A no-code platform for students to build and share portfolios",
 };
 
