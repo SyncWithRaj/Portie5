@@ -16,3 +16,30 @@
   border-radius: 0.375rem;
 }
 
+/* Add this to your global stylesheet */
+@media print {
+  /* Hide everything except the main canvas area */
+  body > div:not(.print-container), .no-print {
+    display: none !important;
+  }
+
+  /* Ensure the canvas container and its parent fill the page */
+  .print-container, .print-content {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  
+  /* Remove shadows and ensure the canvas itself is sized correctly */
+  .print-canvas {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    transform: none !important; /* Reset any transforms */
+    width: 100% !important;
+    height: 100vh !important; /* Fill the viewport height */
+  }
+}

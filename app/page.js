@@ -73,7 +73,7 @@ export default function Home() {
           </div>
           <motion.div className="hidden lg:block" variants={fadeUp}>
             <Image
-              src="/template-hero.png" // Replace with a visually appealing mockup image
+              src="/home.png" // Replace with a visually appealing mockup image
               alt="Portfolio Mockup"
               width={1200}
               height={900}
