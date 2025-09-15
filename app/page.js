@@ -56,11 +56,11 @@ export default function Home() {
             </motion.p>
             <motion.div className="flex gap-4 mt-4 flex-col sm:flex-row justify-center lg:justify-start" variants={fadeUp}>
               <motion.a
-                href="/dashboard"
+                href="/editor"
                 className="rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-semibold px-8 py-3 shadow-lg shadow-indigo-500/20 transform transition-all duration-300"
                 whileHover={{ scale: 1.05, y: -3, boxShadow: "0px 10px 20px rgba(99, 102, 241, 0.4)" }}
               >
-                Get Started for Free
+                Portie5 Studio
               </motion.a>
               <motion.a
                 href="/templates"
