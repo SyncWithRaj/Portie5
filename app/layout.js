@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Script from "next/script";
+import BackgroundParticles from "./components/BackGroundParticles";
 
 // Load Poppins font
 const poppins = Poppins({
@@ -25,7 +26,7 @@ export default function RootLayout({ children }) {
           <Navbar />
 
           {/* Main Content */}
-          <main className="pt-[72px]">{children}</main>
+          <main className="pt-[72px]"><BackgroundParticles />{children}</main>
 
           {/* Omnidimension Widget */}
           <Script
