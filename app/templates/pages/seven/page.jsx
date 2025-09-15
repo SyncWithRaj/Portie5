@@ -118,7 +118,7 @@ const HomePage = () => {
                         <h3 id="skills" className="text-3xl font-bold text-purple-400 mt-16 mb-8 text-center">My Skills</h3>
                         <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
                             {userData.skills.map(skill => (
-                                <span key={skill} className="bg-gray-700 text-purple-300 px-4 py-2 rounded-lg font-medium">{skill}</span>
+                                <span key={skill.name} className="bg-gray-700 text-purple-300 px-4 py-2 rounded-lg font-medium">{skill.name}</span>
                             ))}
                         </div>
                     </>

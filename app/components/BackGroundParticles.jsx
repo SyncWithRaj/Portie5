@@ -2,13 +2,10 @@
 import { useState, useEffect } from "react";
 
 const AnimatedBackground = () => {
-  // 1. Use state for particles, initialize as an empty array
   const [particles, setParticles] = useState([]);
-  
-  // Ripple state
   const [ripples, setRipples] = useState([]);
 
-  // 2. Generate particles only on the client after the component mounts
+  // Generate particles only on the client after the component mounts
   useEffect(() => {
     const generatedParticles = [...Array(20)].map(() => ({
       left: `${(Math.random() * 100).toFixed(2)}%`,
@@ -21,13 +18,14 @@ const AnimatedBackground = () => {
     setParticles(generatedParticles);
   }, []); // Empty dependency array ensures this runs only once on mount
 
-  // This effect for ripples is already correct
+  // This effect creates ripples on mouse move
   useEffect(() => {
     const handleMouseMove = (e) => {
       const newRipple = {
         x: e.clientX,
         y: e.clientY,
-        id: Date.now(),
+        // SOLVED: Use crypto.randomUUID() for a truly unique key
+        id: crypto.randomUUID(),
       };
       setRipples((prev) => [...prev, newRipple]);
 
@@ -60,7 +58,7 @@ const AnimatedBackground = () => {
         {/* Particles */}
         {particles.map((p, i) => (
           <div
-            key={i}
+            key={i} // Using index is safe here as the particle list is static
             className="absolute w-2 h-2 bg-blue-400 rounded-full opacity-20"
             style={{
               left: p.left,
@@ -81,7 +79,7 @@ const AnimatedBackground = () => {
         {/* Cursor Ripples */}
         {ripples.map((r) => (
           <span
-            key={r.id}
+            key={r.id} // This key is now guaranteed to be unique
             className="absolute w-10 h-10 border border-blue-400 rounded-full"
             style={{
               left: r.x - 20,

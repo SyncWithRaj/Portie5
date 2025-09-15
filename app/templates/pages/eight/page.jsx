@@ -103,7 +103,7 @@ const TimelineItem = ({ icon, date, title, subtitle, description, tags }) => (
         {tags && (
             <div className="mt-4 flex flex-wrap gap-2">
                 {tags.map(skill => (
-                    <span key={skill} className="bg-pink-900/50 text-pink-300 text-xs font-medium px-2.5 py-1 rounded-full">{skill}</span>
+                    <span key={skill.name} className="bg-pink-900/50 text-pink-300 text-xs font-medium px-2.5 py-1 rounded-full">{skill.name}</span>
                 ))}
             </div>
         )}
@@ -217,7 +217,7 @@ export default function Portfolio() {
                         <AnimatedSection id="about" title="Skills">
                              <div className="max-w-3xl mx-auto text-center flex flex-wrap justify-center gap-4">
                                 {userData.skills.map(skill => (
-                                    <span key={skill} className="bg-purple-900/50 text-purple-300 text-lg font-medium px-5 py-2 rounded-lg border border-purple-800/50">{skill}</span>
+                                    <span key={skill.name} className="bg-purple-900/50 text-purple-300 text-lg font-medium px-5 py-2 rounded-lg border border-purple-800/50">{skill.name}</span>
                                 ))}
                             </div>
                         </AnimatedSection>

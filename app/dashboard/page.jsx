@@ -233,11 +233,39 @@ export default function DashboardPage() {
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="space-y-6">
                         <div>
                             <label className="block text-sm font-medium text-gray-400 mb-2">Profile Photo</label>
-                            <div className="flex items-center gap-4">
-                                {form.profilePhoto ? (<img src={form.profilePhoto} alt="Profile Preview" className="w-20 h-20 rounded-full object-cover border-2 border-gray-600" />) : (<div className="w-20 h-20 rounded-full bg-gray-800 flex items-center justify-center border-2 border-gray-600"><PhotoIcon className="w-10 h-10 text-gray-500" /></div>)}
+                            <div className="flex flex-col items-center gap-3">
+                                {/* Profile picture preview */}
+                                {form.profilePhoto ? (
+                                    <img
+                                        src={form.profilePhoto}
+                                        alt="Profile Preview"
+                                        className="w-50 h-50 rounded-full object-cover border-4 border-indigo-500 shadow-md"
+                                    />
+                                ) : (
+                                    <div className="w-24 h-24 rounded-full bg-gray-800 flex items-center justify-center border-2 border-dashed border-gray-600">
+                                        <PhotoIcon className="w-12 h-12 text-gray-500" />
+                                    </div>
+                                )}
+
+                                {/* File input button */}
                                 <div className="relative">
-                                    <input type="file" id="file-upload" className="absolute w-full h-full opacity-0 cursor-pointer" onChange={handleImageUpload} accept="image/png, image/jpeg, image/gif" disabled={isUploading} />
-                                    <label htmlFor="file-upload" className={`px-4 py-2 border border-gray-600 rounded-lg text-sm font-semibold cursor-pointer transition-colors ${isUploading ? 'bg-gray-700 text-gray-400' : 'bg-gray-800 hover:bg-gray-700 text-white'}`}>{isUploading ? 'Uploading...' : 'Change Photo'}</label>
+                                    <input
+                                        type="file"
+                                        id="file-upload"
+                                        className="absolute w-full h-full opacity-0 cursor-pointer"
+                                        onChange={handleImageUpload}
+                                        accept="image/png, image/jpeg, image/gif"
+                                        disabled={isUploading}
+                                    />
+                                    <label
+                                        htmlFor="file-upload"
+                                        className={`px-4 py-2 border border-gray-600 rounded-lg text-sm font-semibold cursor-pointer transition-colors ${isUploading
+                                                ? 'bg-gray-700 text-gray-400'
+                                                : 'bg-gray-800 hover:bg-gray-700 text-white'
+                                            }`}
+                                    >
+                                        {isUploading ? 'Uploading...' : 'Change Photo'}
+                                    </label>
                                 </div>
                             </div>
                         </div>

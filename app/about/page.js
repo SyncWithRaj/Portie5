@@ -51,7 +51,7 @@ const TimelineItem = ({ children, last = false }) => (
 
 export default function About() {
     return (
-        <div className="font-poppins relative min-h-screen bg-gray-900 text-white p-6 sm:p-12 overflow-hidden">
+        <div className="font-poppins relative min-h-screen bg-gray-900 text-white p-6 sm:p-12 overflow-hidden -mt-18 py-18">
             {/* Background Glows */}
             <div className="absolute top-0 left-0 w-full h-full -z-10">
                 <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-600/20 rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
@@ -82,14 +82,14 @@ export default function About() {
                             <p className="text-gray-300 text-lg flex-1">
                                 To provide students a platform where they can easily build, customize, and share their digital portfolios. We aim to bridge the gap between talent and opportunity by showcasing skills effectively.
                             </p>
-                            <Image src="/about-mission.jpg" alt="Our Mission" width={250} height={200} className="rounded-2xl shadow-lg flex-shrink-0" />
+                            <Image src="/mission.jpg" alt="Our Mission" width={350} height={250} className="rounded-2xl shadow-lg flex-shrink-0" />
                         </div>
                     </TimelineItem>
 
                     <TimelineItem>
                         <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">Our Vision</h2>
                         <div className="flex flex-col md:flex-row gap-8 items-center">
-                           <Image src="/about-vision.jpg" alt="Our Vision" width={250} height={200} className="rounded-2xl shadow-lg flex-shrink-0 md:order-last" />
+                           <Image src="/vision.jpg" alt="Our Vision" width={350} height={250} className="rounded-2xl shadow-lg flex-shrink-0 md:order-last" />
                             <p className="text-gray-300 text-lg flex-1">
                                 To be the go-to platform for students worldwide to create and maintain professional portfolios. We envision a future where every student can showcase their skills and achievements without barriers.
                             </p>

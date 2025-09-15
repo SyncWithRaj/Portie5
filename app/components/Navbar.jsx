@@ -12,8 +12,9 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 const navLinks = [
   { name: "Features", href: "/features" },
   { name: "Templates", href: "/templates" },
+  { name: "Editor", href: "/editor" },
   { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" }, // Corrected from "Contacts"
+  { name: "Contact", href: "/contact" },
 ];
 
 // --- Main Navbar Component ---
@@ -47,10 +48,11 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 ${pathname === link.href
+              className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 ${
+                pathname === link.href
                   ? "text-gray-900 dark:text-white"
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                }`}
+              }`}
             >
               {link.name}
               {pathname === link.href && (

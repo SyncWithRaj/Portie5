@@ -192,9 +192,9 @@ const Portfolio = () => {
                 <div className="bg-secondary/50 border border-slate/30 rounded-lg p-8">
                     <div className="flex flex-wrap gap-3">
                         {userData.skills.map((skill, index) => (
-                            <AnimatedItem key={skill} index={index}>
+                            <AnimatedItem key={skill.name} index={index}>
                                <div className="bg-secondary/70 px-4 py-2 rounded-md font-mono text-accent/80 text-sm">
-                                   {skill}
+                                   {skill.name}
                                </div>
                             </AnimatedItem>
                         ))}

@@ -70,9 +70,9 @@ const ProjectCard = ({ title, description, tags, githubUrl, liveUrl, imageUrl })
 const TechStack = ({ items }) => (
     <ul className="grid grid-cols-2 gap-x-8 gap-y-4 text-slate-400">
         {items.map(item => (
-            <li key={item} className="flex items-center font-mono text-sm">
+            <li key={item.name} className="flex items-center font-mono text-sm">
                 <span className="text-cyan-400 mr-3">▹</span>
-                {item}
+                {item.name}
             </li>
         ))}
     </ul>

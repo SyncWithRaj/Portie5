@@ -257,8 +257,8 @@ const Portfolio = () => {
                             <div className="holographic rounded-lg p-8 max-w-4xl mx-auto">
                                 <div className="holographic-content flex flex-wrap justify-center gap-3">
                                     {userData.skills.map(skill => (
-                                        <div key={skill} className="text-sm bg-cyan-900/50 text-cyan-300 px-3 py-1 rounded">
-                                            {skill}
+                                        <div key={skill.name} className="text-sm bg-cyan-900/50 text-cyan-300 px-3 py-1 rounded">
+                                            {skill.name}
                                         </div>
                                     ))}
                                 </div>

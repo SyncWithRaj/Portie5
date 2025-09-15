@@ -53,6 +53,7 @@ const UserProfileSchema = new mongoose.Schema(
     projects: [ProjectSchema],
     socialLinks: SocialLinksSchema,
     selectedTemplate: { type: String, trim: true, default: 'one' },
+    editorLayout: [Object],
   },
   { timestamps: true }
 );

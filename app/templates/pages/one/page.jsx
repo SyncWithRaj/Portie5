@@ -231,8 +231,8 @@ const Portfolio = () => {
                                 <div className="max-w-4xl mx-auto card-glow rounded-2xl p-8">
                                     <div className="flex flex-wrap justify-center gap-4">
                                         {userData.skills.map(skill => (
-                                            <div key={skill} className="bg-slate-800/50 border border-cyan-300/20 px-4 py-2 rounded-lg text-cyan-300">
-                                                {skill}
+                                            <div key={skill.name} className="bg-slate-800/50 border border-cyan-300/20 px-4 py-2 rounded-lg text-cyan-300">
+                                                {skill.name}
                                             </div>
                                         ))}
                                     </div>
